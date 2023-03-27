@@ -8,14 +8,16 @@
 import Foundation
 
 
-struct Pokemon : Codable{
-    let results : [PokemonResult]
-    
-}
-
-struct PokemonResult : Codable{
+struct Pokemon: Codable{
     let name : String
-    let url : String
+    let url: String
+    
+    var imageUrl : String {
+        let id = url.split(separator: "/").dropLast().last!
+        return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"    }
 }
 
 
+struct PokemonList : Codable{
+    let results : [Pokemon]
+}

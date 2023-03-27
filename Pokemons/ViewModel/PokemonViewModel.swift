@@ -9,30 +9,39 @@ import Foundation
 import UIKit
 
 
-struct  PokemonListViewModel{
+class PokemonViewModel {
+
+    var pokemonArray = [Pokemon] ()
     
-    let pokemonList = [PokemonResult] ()
-    
-    func numberOfRowsInSection()-> Int{
-        return self.pokemonList.count
+    func fetchPokemon(completion : @escaping() -> ()){
+        
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0") else{
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error{
+                print(error.localizedDescription)
+                return
+            }
+            
+            
+            if let data = data{
+                do{
+                    let decoder = JSONDecoder()
+                    let pokemonData = try decoder.decode(PokemonList.self, from:data)
+                    self.pokemonArray = pokemonData.results
+                    completion()
+                }catch{
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+        
+        
     }
     
-    func pokemonAtIndex(_ index : Int) -> PokemonViewModel{
-        let pokemon = self.pokemonList[index]
-        return PokemonViewModel(pokemon: pokemon)
-    }
     
 }
 
-
-
-struct PokemonViewModel{
-    
-    var pokemon : PokemonResult!
-    
-    var name : String{
-        return self.pokemon.name.capitalized
-    }
-   
-    
-}
