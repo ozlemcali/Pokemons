@@ -1,7 +1,7 @@
 # Pokemons
 
 ## About Project
-Application that lists and details pokemon from PokeAPI.
+An application that displays weather data from the OpenWeatherMap API.
 
 
 ## Includes
@@ -10,6 +10,7 @@ Application that lists and details pokemon from PokeAPI.
 * UITableView
 * JsonDecoder
 * MVVM Design Pattern
+* Alamofire
 
 
 
@@ -17,4 +18,5 @@ Application that lists and details pokemon from PokeAPI.
 
 
 ## Images
-<img src="https://github.com/ozlemcali/Pokemons/blob/main/GithubSS/ss1.png" width ="372.8" height= "702.4"><img src="https://github.com/ozlemcali/Pokemons/blob/main/GithubSS/ss2.png" width ="372.8" height= "702.4">
+<img src="https://github.com/ozlemcali/SimpleWeatherApp/blob/main/GithubSS/ss1.png" width ="372.8" height= "702.4"><img src="https://github.com/ozlemcali/SimpleWeatherApp/blob/main/GithubSS/ss2.png" width ="372.8" height= "702.4">
+<img src="https://github.com/ozlemcali/SimpleWeatherApp/blob/main/GithubSS/ss3.png" width ="372.8" height= "702.4">
